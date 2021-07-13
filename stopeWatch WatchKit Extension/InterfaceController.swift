@@ -11,13 +11,18 @@ import Foundation
 
 class InterfaceController: WKInterfaceController {
     
-
+    var counter = 0
+    var timmerRunning = false
+    var clock = Timer()
+    @IBOutlet weak var timmerLabel: WKInterfaceLabel!
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
     }
     
     override func willActivate() {
         super.willActivate()
+        timmerLabel.setText("0:00")
     }
     
     override func didDeactivate() {
@@ -25,19 +30,28 @@ class InterfaceController: WKInterfaceController {
     }
     
     @IBAction func playButtonTapped() {
-        timmer.start()
+        if !timmerRunning{
+            clock = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
+                self.counter += 1
+                self.timmerLabel.setText("\(self.secondsToHoursMinutesSeconds(seconds: self.counter))")
+            })
+        }
+        timmerRunning = true
     }
     
     @IBAction func pausedButtonTapped() {
-        timmer.stop()
+        timmerRunning = false
+        clock.invalidate()
     }
     
     @IBAction func resetTapped() {
-        timmer.stop()
-        timmer.setDate(Date.init())
+        counter = 0
+        clock.invalidate()
+        timmerLabel.setText("0:0:0")
     }
     
-    @IBOutlet weak var timmer: WKInterfaceTimer!
-    
+    func secondsToHoursMinutesSeconds (seconds : Int) -> String {
+        return "\(seconds / 3600) : \((seconds % 3600) / 60) : \((seconds % 3600) % 60)"
+    }
     
 }

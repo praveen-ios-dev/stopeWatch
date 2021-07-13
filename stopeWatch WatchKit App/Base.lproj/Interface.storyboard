@@ -30,9 +30,9 @@
                                 </button>
                             </items>
                         </group>
-                        <timer alignment="center" verticalAlignment="center" previewedSeconds="0" id="yu7-ub-qhE">
+                        <label alignment="center" text="0:00" textAlignment="center" id="qi1-MO-gti">
                             <fontDescription key="font" style="UICTFontTextStyleTitle1"/>
-                        </timer>
+                        </label>
                         <button width="1" alignment="center" verticalAlignment="bottom" title="Reset" id="zGi-8S-tJg">
                             <connections>
                                 <action selector="resetTapped" destination="AgC-eL-Hgc" id="yTn-Wg-27f"/>
@@ -40,7 +40,7 @@
                         </button>
                     </items>
                     <connections>
-                        <outlet property="timmer" destination="yu7-ub-qhE" id="h5t-Az-oaV"/>
+                        <outlet property="timmerLabel" destination="qi1-MO-gti" id="TE6-Zt-auC"/>
                     </connections>
                 </controller>
             </objects>
