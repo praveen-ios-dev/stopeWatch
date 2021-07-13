@@ -1,16 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14256" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="17156" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14243"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14219"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="17034"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="stopeWatch_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label width="1" alignment="center" text="Stop Watch App" textAlignment="center" id="3Tp-vJ-MU6">
+                            <color key="textColor" red="1" green="0.979395779965756" blue="0.20173098590700456" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </label>
+                        <group width="1" alignment="left" id="Buo-dC-zDJ">
+                            <items>
+                                <button width="48" height="48" alignment="right" backgroundImage="pause" catalog="system" id="gnR-t8-0ZT">
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <connections>
+                                        <action selector="pausedButtonTapped" destination="AgC-eL-Hgc" id="VVe-yK-uI3"/>
+                                    </connections>
+                                </button>
+                                <button width="48" height="48" alignment="left" backgroundImage="play" catalog="system" id="hba-nv-8GT">
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <connections>
+                                        <action selector="playButtonTapped" destination="AgC-eL-Hgc" id="Ebz-yP-iw3"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <timer alignment="center" verticalAlignment="center" previewedSeconds="0" id="yu7-ub-qhE">
+                            <fontDescription key="font" style="UICTFontTextStyleTitle1"/>
+                        </timer>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Reset" id="zGi-8S-tJg">
+                            <connections>
+                                <action selector="resetTapped" destination="AgC-eL-Hgc" id="yTn-Wg-27f"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="timmer" destination="yu7-ub-qhE" id="h5t-Az-oaV"/>
+                    </connections>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="220" y="344"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -32,16 +66,20 @@
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModuleProvider="target"/>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="stopeWatch_WatchKit_App" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="468" y="643"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="Niz-AI-uX2">
             <objects>
-                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModuleProvider="target"/>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="stopeWatch_WatchKit_App" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="468" y="345"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pause" catalog="system" width="93" height="128"/>
+        <image name="play" catalog="system" width="119" height="128"/>
+    </resources>
 </document>
